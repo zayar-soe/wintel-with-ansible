@@ -1,0 +1,15 @@
+---
+- name: Notify patching result
+  hosts: localhost
+  gather_facts: no
+  vars_files:
+    - group_vars/windows.yml
+  tasks:
+    - name: Send completion email
+      mail:
+        host: smtp.yourcompany.com
+        port: 25
+        to: "{{ notify_email }}"
+        subject: "Lenovo Wintel Patch Completed"
+        body: |
+          All approved updates were installed on Wintel servers.

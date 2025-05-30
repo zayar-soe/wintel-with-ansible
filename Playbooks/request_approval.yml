@@ -1,0 +1,16 @@
+---
+- name: Request approval for patching
+  hosts: localhost
+  gather_facts: no
+  vars_files:
+    - group_vars/windows.yml
+  tasks:
+    - name: Email request for patching approval
+      mail:
+        host: smtp.yourcompany.com
+        port: 25
+        to: "{{ approval_email }}"
+        subject: "Approval Needed: Windows patching"
+        body: |
+          Security updates found on Lenovo Wintel servers.
+          Please approve to proceed with patch installation.

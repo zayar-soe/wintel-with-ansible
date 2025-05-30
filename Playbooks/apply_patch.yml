@@ -1,0 +1,10 @@
+---
+- name: Apply Windows Updates on Lenovo servers
+  hosts: wintel_servers
+  gather_facts: no
+  tasks:
+    - name: Install all security updates
+      ansible.windows.win_updates:
+        category_names:
+          - SecurityUpdates
+        reboot: yes
