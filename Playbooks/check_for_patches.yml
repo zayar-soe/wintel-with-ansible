@@ -1,6 +1,6 @@
 ---
 - name: Check for available patches on Lenovo Windows servers
-  hosts: wintel_servers
+  hosts: win-srv01
   gather_facts: no
   tasks:
     - name: List available updates
