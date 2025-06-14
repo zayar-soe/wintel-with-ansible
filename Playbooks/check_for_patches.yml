@@ -10,9 +10,7 @@
       win_ping:                  
 
     - name: List available updates
-      ansible.windows.win_updates:
-        category_names:
-          - SecurityUpdates        
+      ansible.windows.win_updates:     
         state: searched           
       register: available_updates
       
