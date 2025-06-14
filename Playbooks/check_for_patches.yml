@@ -15,7 +15,11 @@
           - SecurityUpdates        
         state: searched           
       register: available_updates
-
+      
     - name: Show list of updates
       debug:
         var: available_updates.found_updates
+        
+    - name: Show full update check result
+      debug:
+        var: available_updates
