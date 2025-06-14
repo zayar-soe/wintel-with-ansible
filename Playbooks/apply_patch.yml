@@ -1,10 +1,13 @@
----
-- name: Apply Windows Updates on Lenovo servers
-  hosts: wintel_servers
+- hosts: windows                   
   gather_facts: no
+  collections:
+    - ansible.windows            
+
   tasks:
-    - name: Install all security updates
+    - name: Install a specific update by KB number
       ansible.windows.win_updates:
-        category_names:
-          - SecurityUpdates
-        reboot: yes
+        category_names: []      
+        state: installed       
+        kb_numbers:
+          - 890830            
+      register: update_install_result
