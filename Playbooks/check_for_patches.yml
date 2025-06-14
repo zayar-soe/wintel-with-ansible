@@ -1,6 +1,6 @@
 ---
 - name: Check for available patches on Lenovo Windows servers
-  hosts: win-srv01
+  hosts: windows
   gather_facts: no
   collections:
   - ansible.windows
