@@ -1,19 +1,19 @@
 ---
 - name: Check for available patches on Lenovo Windows servers
-  hosts: windows
+  hosts: windows                   
   gather_facts: no
   collections:
-  - ansible.windows
+    - ansible.windows            
 
   tasks:
     - name: test connectivity
-      win_ping:
-      
+      win_ping:                  
+
     - name: List available updates
       ansible.windows.win_updates:
         category_names:
-          - SecurityUpdates
-        state: searched
+          - SecurityUpdates        
+        state: searched           
       register: available_updates
 
     - name: Show list of updates
