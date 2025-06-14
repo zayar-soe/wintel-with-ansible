@@ -23,11 +23,8 @@
         var: available_updates
         
     - name: Install a specific update by KB number
-      ansible.windows.win_updates:
-        category_names: []      
-        state: installed       
-        kb_numbers:
-          - 890830            
+      ansible.windows.win_updates:    
+        state: installed               
       register: update_install_result
       
     - name: Show full update install result
