@@ -22,7 +22,7 @@
       debug:
         var: available_updates
         
-    - name: Install a specific update by KB number
+    - name: Install found updates
       ansible.windows.win_updates:    
         state: installed               
       register: update_install_result
