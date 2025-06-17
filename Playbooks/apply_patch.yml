@@ -4,12 +4,25 @@
     - ansible.windows            
 
   tasks:
+    - name: Download found updates
+      ansible.windows.win_updates:  
+        category_names:
+          - SecurityUpdates
+          - CriticalUpdates
+        state: downloaded
+                    
+      register: update_download_result
+      
+    - name: Show full update install result
+      debug:
+        var: update_download_result  
+        
     - name: Install found updates
       ansible.windows.win_updates:  
         category_names:
           - SecurityUpdates
           - CriticalUpdates
-          - UpdateRollups
+        state: installed
                     
       register: update_install_result
       
