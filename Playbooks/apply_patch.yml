@@ -6,7 +6,10 @@
   tasks:
     - name: Install found updates
       ansible.windows.win_updates:  
-        category_names: []   
+        category_names:
+          - SecurityUpdates
+          - CriticalUpdates
+          - UpdateRollups
         state: installed               
       register: update_install_result
       
