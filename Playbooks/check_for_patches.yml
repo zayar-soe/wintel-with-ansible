@@ -22,11 +22,3 @@
       debug:
         var: available_updates
         
-    - name: Install found updates
-      ansible.windows.win_updates:    
-        state: installed               
-      register: update_install_result
-      
-    - name: Show full update install result
-      debug:
-        var: update_install_result
