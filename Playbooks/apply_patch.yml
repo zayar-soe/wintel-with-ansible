@@ -10,7 +10,7 @@
           - SecurityUpdates
           - CriticalUpdates
           - UpdateRollups
-        state: installed               
+                    
       register: update_install_result
       
     - name: Show full update install result
