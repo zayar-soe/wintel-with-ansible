@@ -1,0 +1,20 @@
+- hosts: win_srvs
+  gather_facts: no
+  collections:
+    - ansible.windows
+
+  vars:
+    target_kbs:
+      - 5062572
+
+  tasks:
+    - name: Download specific KBs
+      ansible.windows.win_updates:
+        kb_article_ids: "{{ target_kbs }}"
+        state: downloaded
+      register: update_download_result
+
+    - name: Show download result
+      debug:
+        var: update_download_result
+
