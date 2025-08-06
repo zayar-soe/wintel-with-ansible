@@ -23,6 +23,7 @@
           - SecurityUpdates
           - CriticalUpdates
         state: installed
+        reboot: true
                     
       register: update_install_result
       
