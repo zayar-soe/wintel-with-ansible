@@ -1,0 +1,31 @@
+---
+- name: Check for available patches on Lenovo Windows servers
+  hosts: windows                   
+  gather_facts: no
+  collections:
+    - ansible.windows            
+
+  tasks:
+    - name: Download found updates
+      ansible.windows.win_updates:
+        category_names: '*'
+        state: downloaded
+                    
+      register: update_download_result
+      
+    - name: Show full update install result
+      debug:
+        var: update_download_result  
+        
+    - name: Install found updates
+      ansible.windows.win_updates:  
+        category_names: '*'
+        state: installed
+        reboot: true
+                    
+      register: update_install_result
+      
+    - name: Show full update install result
+      debug:
+        var: update_install_result
+        
