@@ -1,4 +1,4 @@
-- hosts: win_srvs                   
+- hosts: windows                   
   gather_facts: no
   collections:
     - ansible.windows            
