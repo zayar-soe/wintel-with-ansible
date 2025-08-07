@@ -1,5 +1,5 @@
 ---
-- name: Check for available patches on Lenovo Windows servers
+- name: Check for available patches on Windows servers
   hosts: windows                   
   gather_facts: no
   collections:
